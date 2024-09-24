@@ -2,8 +2,8 @@
 <template>
   <div>
     
-    <ul v-if="typeof featureData === 'object'">
-      <li v-for="(value, key) in featureData" :key="key">
+    <ul v-if="typeof achievementRef === 'object'">
+      <li v-for="(value, key) in achievementRef" :key="key">
         <strong>{{ key }}:</strong> 
         <span v-if="typeof value !== 'object'">{{ value }}</span>
         <ul v-else>
@@ -24,10 +24,11 @@
 
 
 <script setup>
-import { ref } from 'vue';
-import AchievementData from '../assets/json/Achievement.json';
-
-const featureData = ref(AchievementData);
+import { defineProps, toRef } from 'vue';
+const props = defineProps({
+  AchievementData: Object
+}); 
+const achievementRef =toRef(props,'AchievementData');
 
 function CheckThirdkey(thirdKey){
   if (thirdKey < 10)

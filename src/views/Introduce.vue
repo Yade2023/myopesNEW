@@ -2,13 +2,14 @@
 <template>
   <div>
     <h2>自我介紹</h2>
-    <ExtendJson />
+    <Achievement :AchievementData=AchievementData />
+
   </div>
 </template>
 
 
 <script setup>
-import ExtendJson from '../components/ExtendJson.vue';
-
+import Achievement from '../components/Achievement.vue';
+import AchievementData from '../assets/json/Introduce.json';
 </script>
 
