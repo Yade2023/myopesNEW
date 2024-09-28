@@ -16,7 +16,6 @@
 
 </template>
 
-
 <script setup>
 import Achievement from '../components/Achievement.vue';
 import AchievementData from '../assets/json/Achievement.json';
@@ -24,9 +23,10 @@ import AchievementData from '../assets/json/Achievement.json';
 
 <style scoped>
 @import "@/assets/css/Layout.css";
-
 .small-image {
+
   width: 800px; /* 設定寬度 */
   height: auto; /* 自動調整高度以保持比例 */
 }
 </style>
+
