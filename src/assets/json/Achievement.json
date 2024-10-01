@@ -1,6 +1,0 @@
-{
-  "前端開發工具": "Vue3 Router, Bootstrap 5, jQuery",
-  "後端開發工具": ".NET6, Visual Studio 2022, C#",
-  "數據庫管理": "SQL Server Management Studio 19 (SSMS 19), JSON",
-  "軟體架構": "MVC 架構"
-}
