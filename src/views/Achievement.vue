@@ -9,7 +9,7 @@
     <img src="@/assets/ph/Xmind.png" class="small-image" />
   </div>
   <h2>Visual Studio 2022</h2>
-    <Achievement :AchievementData=AchievementData />
+    <Achievement :AchievementData=VisualStudio2022ConnieWeb />
   <div class="main" >
         <img src="@/assets/ph/ConnieWeb.png" class="small-image" />
   </div>
@@ -19,6 +19,7 @@
 <script setup>
 import Achievement from '../components/Achievement.vue';
 import AchievementData from '../assets/json/Achievement.json';
+import VisualStudio2022ConnieWeb from '../assets/json/VisualStudio2022ConnieWeb.json';
 </script>
 
 <style scoped>
