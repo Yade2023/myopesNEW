@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/Yade2023/',
+  base: '/myopesNEW/',
   plugins: [
     AutoImport({
       resolvers: [ElementPlusResolver()],
