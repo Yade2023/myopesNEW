@@ -7,11 +7,15 @@
 .layout {
   display: flex;
   flex-direction: column;
+  height: 737px;
+  max-width: 1220px;
+  width: 100%;
+   margin: 0 auto;
 }
 
 .header {
 
-  background-image: url('../ph/background-imageS/navbar_myopesNEW.jpg');
+  background-image: url('../ph/background-imageS/navbers3.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -28,7 +32,7 @@
 .header button {
   width: 50px;
   height: 50px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-right: 40px;
   border-radius: 50%;
   transition:
@@ -47,10 +51,10 @@
 }
 
 .header nav {
-  font-size: 20px;
+  font-size: 22px;
   width: 600px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   border: none;
   list-style: none;
 }
@@ -68,7 +72,7 @@
 
 
 .router-link-class {
-  color: #050505;
+  color: #ffffff;
   /* 文字白色 */
   padding: 5px 10px;
   text-decoration: none;
@@ -96,6 +100,10 @@ nav .router-link-class:hover {
 
 
 .content {
+  background-image: url('../ph/background-imageS/bodys3.png');
+    background-repeat: no-repeat;
+  background-size: cover;
+
   flex: 1;
   padding: 20px;
 }

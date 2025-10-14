@@ -21,13 +21,15 @@
         <button class="contact-button" @click="showContact = true">聯絡資訊</button>
         <ContactPopup v-if="showContact" @close="showContact = false" />
       </nav>
-
     </header>
     <div class="main">
       <section class="content">
         <RouterView />
       </section>
     </div>
+    <footer>
+      <footers />
+    </footer>
   </div>
 </template>
 
@@ -35,6 +37,7 @@
 <script setup>
 import { ref } from 'vue';
 import ContactPopup from './ContactPopup.vue';
+import Footers from './Footers.vue';
 
 const showContact = ref(false);
 </script>

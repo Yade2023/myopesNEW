@@ -1,11 +1,15 @@
 .footer {
-  background-image: url('../assets/ph/background-imageS/footer2_myopesNEW.jpg');
+  background-image: url('../ph/background-imageS/footers3.png');
   background-repeat: no-repeat;
   background-size: cover;
-
+  width: 1220px;
+  height: 195px;
   color: #000000;
-  padding: 10px 20px;
   font-family: "Noto Sans TC", sans-serif;
+   display: flex;             /* 啟用 flex */
+  align-items: flex-end;     /* 🚀 垂直靠底 */
+  justify-content: center;   /* 水平置中（可視需求改） */
+  padding-bottom: 10px;      /* 與底邊留點距離 */
 }
 
 .footer-container {
@@ -16,7 +20,6 @@
   display: flex;
   justify-content: center;
   flex: 1 1 150px;
-  margin: 10px 20px;
 }
 
 .footer-column h4 {
