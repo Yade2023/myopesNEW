@@ -1,19 +1,22 @@
 * {
 
   font-family: sans-serif;
+  
 }
 
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .header {
+
+  background-image: url('../ph/background-imageS/navbar_myopesNEW.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px;
   color: #fff;
   font-size: 1rem;
 }
@@ -78,13 +81,14 @@ h1 .router-link-class:hover {
 }
 
 nav .router-link-class:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
   /* 放大 15% */
   box-shadow: 0 10px 10px rgba(88, 79, 79, 0.3);
   /* 加上柔和陰影 */
 
   font-size: 1.1em;
 }
+
 .main {
   display: flex;
   flex: 1;

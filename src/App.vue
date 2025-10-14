@@ -15,6 +15,7 @@ import Footers from './components/Footers.vue';
 
 <style>
 body{
+  margin: 0px;
   /* background-image:url("./assets/ph/backgroundImg.jpg") ;
   background-repeat: no-repeat;
   background-size: cover; */

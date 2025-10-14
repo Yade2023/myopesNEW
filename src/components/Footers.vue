@@ -13,27 +13,5 @@
 </template>
 
 <style scoped>
-.footer {
-  color: #000000;
-  padding: 10px 20px;
-  font-family: "Noto Sans TC", sans-serif;
-}
-
-.footer-container {
-  flex-wrap: wrap;
-}
-
-.footer-column {
-  display: flex;
-  justify-content: center;
-  flex: 1 1 150px;
-  margin: 10px 20px;
-}
-
-.footer-column h4 {
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: #ffffff;
-  font-weight: bold;
-}
+@import "@/assets/css/footers.css";
 </style>
