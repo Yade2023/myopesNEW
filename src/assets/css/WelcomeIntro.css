@@ -14,34 +14,36 @@
 /* ===============================
    整體容器
    =============================== */
-.welcome {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
+ .welcome {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     display: grid;
     place-items: center;
     background: transparent;
     --mx: 0;
     --my: 0;
     overflow: hidden;
-    z-index: 1;
 }
 
 /* ===============================
    卡片樣式：透明＋浮動
    =============================== */
 .card {
-    width: min(90vw, 500px);
-    padding: 30px 26px;
-    border-radius: 24px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
-    animation: pop .8s ease both;
+    width: min(90vw, 500px); /* 卡片寬度，最大 500px，最小 90vw（響應式） */
+    padding: 30px 26px; /* 內距，讓內容不貼邊 */
+    border-radius: 24px; /* 圓角 */
+    text-align: center; /* 內容置中 */
+    backdrop-filter: blur(10px); /* 毛玻璃模糊背景效果 */
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2); /* 陰影，讓卡片浮起來 */
+    animation: pop .8s ease both; /* 進場動畫 */
     transform:
-        perspective(800px) rotateX(calc(var(--my) * -6deg)) rotateY(calc(var(--mx) * 10deg)) translateY(calc(var(--my) * 10px));
-    transition: transform .2s ease;
+        perspective(800px) rotateX(calc(var(--my) * -6deg)) /* 滑鼠視差 X 軸傾斜 */
+        rotateY(calc(var(--mx) * 10deg)) /* 滑鼠視差 Y 軸傾斜 */
+        translateY(calc(var(--my) * 10px)); /* 滑鼠視差 Y 軸位移 */
+    transition: transform .4s ease; /* 滑鼠移動時的動畫過渡 */
+    pointer-events: auto; /* 允許卡片本身可互動（點擊、滑鼠事件） */
 }
 
 @keyframes pop {
@@ -88,10 +90,6 @@
 
 /* 圖示：不裁切、置中顯示（SVG/PNG 都適用） */
 
-/* 如果有 icon，把漸層背景拿掉更乾淨 */
-.avatar.has-icon {
-    background: rgba(255, 255, 255, .2);
-}
 
 /* 如果是文字縮寫，給個漸層底以免太單調 */
 .avatar:not(.has-photo):not(.has-icon) {
@@ -119,19 +117,7 @@ h1.reveal {
     border-right: 2px solid #2b3440;
 }
 
-h1.reveal::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #8fb3ff, #6dd5ed);
-    border-radius: 6px;
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: underline .9s .3s ease forwards;
-}
+
 
 @keyframes underline {
     to {
@@ -144,8 +130,8 @@ h1.reveal::after {
    =============================== */
 .typing {
     margin: 10px 0 18px;
-    font-size: clamp(14px, 3.5vw, 18px);
-    color: #222;
+    font-size: clamp(16px, 3.5vw, 18px);
+    color: #050505;
     text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
     white-space: nowrap;
     width: 0ch;

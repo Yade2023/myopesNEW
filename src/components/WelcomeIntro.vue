@@ -3,8 +3,7 @@
         <section v-if="visible" class="welcome" @pointermove="onMove" @pointerleave="resetMove">
             <div class="card">
                 <div class="avatar" :class="{
-                    'has-photo': !!photoUrl,
-                    'has-icon': !!iconUrl
+                    'has-photo': !!photoUrl
                 }">
                     <img v-if="photoUrl" :src="photoUrl" alt="avatar" class="avatar-img" />
                     <span v-else>{{ initials }}</span>
@@ -32,16 +31,11 @@ const props = defineProps({
     iconUrl: { type: String, default: '' }     // ← 新增：圖示路徑（SVG/PNG 皆可）
 })
 
-const emit = defineEmits(['done'])
 const visible = ref(true)
 
 const initials = computed(() => props.name.slice(0, 2))
 const typingLen = computed(() => String(props.title.length))
 
-function finish() {
-    visible.value = false
-    setTimeout(() => emit('done'), 400)
-}
 
 // 滑鼠視差效果
 function onMove(e) {
