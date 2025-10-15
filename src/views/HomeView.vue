@@ -1,32 +1,26 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="image-container">
-    <img :src="imageUrl" alt="加載中..." />
-    <span>2024/09/01</span> <!-- 直接展示 alt 内容 -->
-  </div>
-  <div>
-    <h2>簡介</h2>
-    <p>{{ featureData }}</p>
+  <div class="home">
+    <!-- 你的首頁內容（會被開場動畫透明遮罩蓋在上面） -->
+    <!-- 建議 body 或 .home 自己就有背景圖 -->
+    <WelcomeIntro name="徐承杰" title="前端工程師 · 個人履歷" :autoHideMs="2500" next="" photoUrl="../assets/ph/2222.png"  />
+    <div>
+      <h2>簡介</h2>
+      <p>{{ featureData }}</p>
+    </div>
   </div>
 </template>
 
 
 <script setup>
+import WelcomeIntro from '../components/WelcomeIntro.vue'
 import { ref } from 'vue';
-const imageUrl = new URL('@/assets/ph/WIN_20240831_13_02_38_Pro.jpg', import.meta.url).href;
 const featureData = ref('這是我的履歷網頁，感謝您的查看');
 
 </script>
-
 <style scoped>
-.image-container {
-  text-align: center; /* 確保圖片容器中的內容居中 */
-}
-
-img {
-  max-width: 30%;     /* 保證圖片不超出容器 */
-  height: auto;       /* 保持圖片的縱橫比 */
-  display: block;     /* 將圖片設置為塊級元素 */
-  margin: 0 auto;     /* 水平居中圖片 */
+.home {
+  min-height: 100vh;
+  /* 用你的背景圖（範例） */
 }
 </style>

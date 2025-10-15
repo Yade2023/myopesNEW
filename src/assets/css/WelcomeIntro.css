@@ -1,0 +1,242 @@
+/* ===============================
+   入場淡出動畫
+   =============================== */
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s ease;
+}
+
+/* ===============================
+   整體容器
+   =============================== */
+.welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    --mx: 0;
+    --my: 0;
+    overflow: hidden;
+}
+
+/* ===============================
+   卡片樣式：透明＋浮動
+   =============================== */
+.card {
+    width: min(90vw, 500px);
+    padding: 30px 26px;
+    border-radius: 24px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+    animation: pop .8s ease both;
+    transform:
+        perspective(800px) rotateX(calc(var(--my) * -6deg)) rotateY(calc(var(--mx) * 10deg)) translateY(calc(var(--my) * 10px));
+    transition: transform .2s ease;
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===============================
+   頭像區：照片＋漸層圓
+   =============================== */
+.avatar {
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, .25);
+    /* 微透明底，襯托 icon */
+    border: 2px solid rgba(255, 255, 255, .9);
+    /* 細白邊 */
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, .18),
+        /* 柔陰影 */
+        0 0 0 6px rgba(255, 255, 255, .18);
+    /* 外層柔光圈（很淡） */
+    transform: translate3d(calc(var(--mx)*10px), calc(var(--my)*10px), 0);
+    transition: transform .18s ease;
+    overflow: hidden;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 圖示：不裁切、置中顯示（SVG/PNG 都適用） */
+
+/* 如果有 icon，把漸層背景拿掉更乾淨 */
+.avatar.has-icon {
+    background: rgba(255, 255, 255, .2);
+}
+
+/* 如果是文字縮寫，給個漸層底以免太單調 */
+.avatar:not(.has-photo):not(.has-icon) {
+    background: linear-gradient(135deg, #6dd5ed, #8fb3ff);
+    color: #fff;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: .5px;
+}
+
+/* ===============================
+   名字：底線動畫＋柔光陰影
+   =============================== */
+/* 名字與職稱可讀性（在亮背景上更清楚） */
+h1.reveal {
+    text-shadow: 0 2px 4px rgba(255, 255, 255, .85), 0 1px 0 rgba(0, 0, 0, .05);
+}
+
+.typing {
+    display: inline-block;
+    /* 讓打字寬度以內容為準、置中 */
+    margin: 10px auto 18px;
+    color: #1f2a37;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, .7);
+    border-right: 2px solid #2b3440;
+}
+
+h1.reveal::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #8fb3ff, #6dd5ed);
+    border-radius: 6px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underline .9s .3s ease forwards;
+}
+
+@keyframes underline {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* ===============================
+   職稱：打字機效果
+   =============================== */
+.typing {
+    margin: 10px 0 18px;
+    font-size: clamp(14px, 3.5vw, 18px);
+    color: #222;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    width: 0ch;
+    overflow: hidden;
+    border-right: 2px solid #333;
+    animation: typing steps(var(--typing-len)) 1.2s .6s both,
+        caret .8s steps(1) infinite;
+}
+
+@keyframes typing {
+    to {
+        width: calc(var(--typing-len) * 2ch);
+    }
+}
+
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* ===============================
+   按鈕樣式
+   =============================== */
+.enter {
+    margin-top: 6px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(28, 36, 52, .2);
+    cursor: pointer;
+    color: #1c2434;
+    background: rgba(255, 255, 255, .65);
+    backdrop-filter: blur(2px);
+    font-weight: 600;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.enter:hover {
+    transform: translateY(-2px);
+}
+
+.enter:active {
+    transform: translateY(0);
+}
+
+/* ===============================
+   背景柔光粒子
+   =============================== */
+.blob {
+    position: absolute;
+    filter: blur(30px);
+    opacity: .30;
+    border-radius: 50%;
+    animation: drift 12s ease-in-out infinite;
+    transform: translate3d(calc(var(--mx) * -20px), calc(var(--my) * -16px), 0);
+    transition: transform .12s ease;
+}
+
+.b1 {
+    width: 320px;
+    height: 320px;
+    background: rgba(109, 213, 237, .65);
+    top: -80px;
+    right: -60px;
+}
+
+.b2 {
+    width: 260px;
+    height: 260px;
+    background: rgba(143, 179, 255, .65);
+    bottom: -60px;
+    left: -40px;
+    animation-delay: -3s;
+}
+
+.b3 {
+    width: 200px;
+    height: 200px;
+    background: rgba(160, 255, 214, .65);
+    bottom: 20%;
+    right: 10%;
+    animation-delay: -6s;
+}
+
+@keyframes drift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(12px, -10px) scale(1.05);
+    }
+}

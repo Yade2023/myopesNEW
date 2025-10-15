@@ -30,6 +30,8 @@
     <footer>
       <footers />
     </footer>
+    <!-- 🚀 回到頂部按鈕 -->
+    <BackToTop />
   </div>
 </template>
 
@@ -38,6 +40,7 @@
 import { ref } from 'vue';
 import ContactPopup from './ContactPopup.vue';
 import Footers from './Footers.vue';
+import BackToTop from './BackToTop.vue'
 
 const showContact = ref(false);
 </script>

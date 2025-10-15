@@ -2,14 +2,16 @@
   background-image: url('../ph/background-imageS/footers3.png');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 1220px;
-  height: 195px;
-  color: #000000;
+  background-position: center;   /* 補這行讓圖置中裁切 */
+  width: 100%;                   /* 原本是 1220px → 100% */
+  min-height: 195px;             /* 高度用 min-height 比較安全 */
+  color: #ffffff;
   font-family: "Noto Sans TC", sans-serif;
    display: flex;             /* 啟用 flex */
   align-items: flex-end;     /* 🚀 垂直靠底 */
   justify-content: center;   /* 水平置中（可視需求改） */
-  padding-bottom: 10px;      /* 與底邊留點距離 */
+  padding-bottom: 10px 16px;      /* 與底邊留點距離 */
+  box-sizing: border-box;
 }
 
 .footer-container {
