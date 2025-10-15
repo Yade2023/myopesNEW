@@ -26,7 +26,7 @@ import { ref, computed, onMounted } from 'vue'
 const props = defineProps({
     name: { type: String, default: '徐承杰' },
     title: { type: String, default: '前端工程師 · 個人履歷' },
-    autoHideMs: { type: Number, default: 2500 },
+    autoHideMs: { type: Number, default: 0 }, // 設為0表示不自動隱藏
     next: { type: String, default: '' },
     photoUrl: { type: String, default: '' },
     iconUrl: { type: String, default: '' }     // ← 新增：圖示路徑（SVG/PNG 皆可）
@@ -59,7 +59,8 @@ function resetMove(e) {
 }
 
 onMounted(() => {
-    if (props.autoHideMs > 0) setTimeout(finish, props.autoHideMs)
+    // 移除自動隱藏功能，讓動畫持續顯示
+    // if (props.autoHideMs > 0) setTimeout(finish, props.autoHideMs)
 })
 </script>
 
