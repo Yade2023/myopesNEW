@@ -7,10 +7,10 @@
   min-height: 195px;             /* 高度用 min-height 比較安全 */
   color: #ffffff;
   font-family: "Noto Sans TC", sans-serif;
-   display: flex;             /* 啟用 flex */
+  display: flex;             /* 啟用 flex */
   align-items: flex-end;     /* 🚀 垂直靠底 */
   justify-content: center;   /* 水平置中（可視需求改） */
-  padding-bottom: 10px 16px;      /* 與底邊留點距離 */
+  padding: 20px 16px 10px 16px;      /* 修正 padding 語法 */
   box-sizing: border-box;
 }
 
@@ -29,4 +29,39 @@
   margin-bottom: 12px;
   color: #ffffff;
   font-weight: bold;
+}
+
+/* ===============================
+   Footer 響應式設計
+   =============================== */
+@media (max-width: 768px) {
+  .footer {
+    min-height: 150px;
+    padding: 15px 10px 10px 10px;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-column {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column h4 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    min-height: 120px;
+    padding: 10px 5px 5px 5px;
+  }
+  
+  .footer-column h4 {
+    font-size: 12px;
+  }
 }

@@ -14,33 +14,51 @@
 /* ===============================
    整體容器
    =============================== */
+.fade_rl {
+    display: flex;
+    width: 100%;
+    min-height: 55vh;
+    align-items: center;
+    gap: 20px;
+}
+
 .welcome {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-    background: transparent;
+    position: relative;
+    width: 50%; /* 左側圖片區域 */
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../ph/WIN_20240831_13_02_38_Pro.jpg');
+    background-size: cover;
+    background-position: center top; /* 調整為置中靠上，保留照片上半部分 */
+    background-repeat: no-repeat;
     --mx: 0;
     --my: 0;
     overflow: hidden;
+    z-index: 1;
+    padding: 20px;
+    border-radius: 16px 0 0 16px; /* 左側圓角 */
 }
 
 /* ===============================
    卡片樣式：透明＋浮動
    =============================== */
 .card {
-    width: min(90vw, 500px);
-    padding: 30px 26px;
-    border-radius: 24px;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.2);
+    width: 50%; /* 右側文字區域 */
+    padding: 40px 30px;
+    border-radius: 0 16px 16px 0; /* 右側圓角 */
+    text-align: left; /* 改為左對齊 */
     animation: pop .8s ease both;
     transform:
         perspective(800px) rotateX(calc(var(--my) * -6deg)) rotateY(calc(var(--mx) * 10deg)) translateY(calc(var(--my) * 10px));
     transition: transform .2s ease;
+    background: rgba(255, 255, 255, 0.95); /* 添加白色半透明背景 */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @keyframes pop {
@@ -56,66 +74,16 @@
 }
 
 /* ===============================
-   頭像區：照片＋漸層圓
+   名字樣式
    =============================== */
-.avatar {
-    width: 112px;
-    height: 112px;
-    margin: 0 auto 14px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: rgba(255, 255, 255, .25);
-    /* 微透明底，襯托 icon */
-    border: 2px solid rgba(255, 255, 255, .9);
-    /* 細白邊 */
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, .18),
-        /* 柔陰影 */
-        0 0 0 6px rgba(255, 255, 255, .18);
-    /* 外層柔光圈（很淡） */
-    transform: translate3d(calc(var(--mx)*10px), calc(var(--my)*10px), 0);
-    transition: transform .18s ease;
-    overflow: hidden;
-}
-
-.avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* 圖示：不裁切、置中顯示（SVG/PNG 都適用） */
-
-/* 如果有 icon，把漸層背景拿掉更乾淨 */
-.avatar.has-icon {
-    background: rgba(255, 255, 255, .2);
-}
-
-/* 如果是文字縮寫，給個漸層底以免太單調 */
-.avatar:not(.has-photo):not(.has-icon) {
-    background: linear-gradient(135deg, #6dd5ed, #8fb3ff);
-    color: #fff;
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: .5px;
-}
-
-/* ===============================
-   名字：底線動畫＋柔光陰影
-   =============================== */
-/* 名字與職稱可讀性（在亮背景上更清楚） */
 h1.reveal {
-    text-shadow: 0 2px 4px rgba(255, 255, 255, .85), 0 1px 0 rgba(0, 0, 0, .05);
-}
-
-.typing {
-    display: inline-block;
-    /* 讓打字寬度以內容為準、置中 */
-    margin: 10px auto 18px;
-    color: #1f2a37;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, .7);
-    border-right: 2px solid #2b3440;
+    font-size: 2.5rem; /* 增大字體 */
+    margin: 0 0 15px 0; /* 增加下邊距 */
+    color: #333; /* 改為深色文字 */
+    text-shadow: none; /* 移除陰影 */
+    font-weight: 700; /* 增加字體粗細 */
+    position: relative;
+    line-height: 1.2;
 }
 
 h1.reveal::after {
@@ -142,16 +110,18 @@ h1.reveal::after {
    職稱：打字機效果
    =============================== */
 .typing {
-    margin: 10px 0 18px;
-    font-size: clamp(14px, 3.5vw, 18px);
-    color: #222;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+    margin: 0;
+    font-size: 1.2rem; /* 增大字體 */
+    color: #666; /* 改為灰色文字 */
+    text-shadow: none; /* 移除陰影 */
     white-space: nowrap;
     width: 0ch;
     overflow: hidden;
-    border-right: 2px solid #333;
+    border-right: 2px solid #333; /* 改為深色邊框 */
     animation: typing steps(var(--typing-len)) 1.2s .6s both,
         caret .8s steps(1) infinite;
+    font-weight: 400;
+    line-height: 1.4;
 }
 
 @keyframes typing {
@@ -164,30 +134,6 @@ h1.reveal::after {
     50% {
         border-color: transparent;
     }
-}
-
-/* ===============================
-   按鈕樣式
-   =============================== */
-.enter {
-    margin-top: 6px;
-    padding: 10px 16px;
-    border-radius: 12px;
-    border: 1px solid rgba(28, 36, 52, .2);
-    cursor: pointer;
-    color: #1c2434;
-    background: rgba(255, 255, 255, .65);
-    backdrop-filter: blur(2px);
-    font-weight: 600;
-    transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.enter:hover {
-    transform: translateY(-2px);
-}
-
-.enter:active {
-    transform: translateY(0);
 }
 
 /* ===============================
@@ -230,7 +176,6 @@ h1.reveal::after {
 }
 
 @keyframes drift {
-
     0%,
     100% {
         transform: translate(0, 0) scale(1);
@@ -238,5 +183,76 @@ h1.reveal::after {
 
     50% {
         transform: translate(12px, -10px) scale(1.05);
+    }
+}
+
+/* ===============================
+   響應式設計
+   =============================== */
+@media (max-width: 768px) {
+    .fade_rl {
+        flex-direction: column; /* 改為垂直佈局 */
+        gap: 0;
+    }
+    
+    .welcome {
+        width: 100%;
+        min-height: 40vh;
+        padding: 15px 8px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 16px 16px 0 0; /* 上方圓角 */
+    }
+    
+    .card {
+        width: 100%;
+        padding: 20px 15px;
+        border-radius: 0 0 16px 16px; /* 下方圓角 */
+        text-align: center; /* 手機版改為置中 */
+    }
+    
+    h1.reveal {
+        font-size: 1.8rem;
+        color: #333;
+    }
+    
+    .typing {
+        font-size: 1rem;
+        margin: 0;
+        color: #666;
+    }
+}
+
+@media (max-width: 480px) {
+    .fade_rl {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .welcome {
+        width: 100%;
+        min-height: 30vh;
+        padding: 10px 5px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .card {
+        width: 100%;
+        padding: 15px 12px;
+        border-radius: 0 0 12px 12px;
+        text-align: center;
+    }
+    
+    h1.reveal {
+        font-size: 1.5rem;
+        color: #333;
+    }
+    
+    .typing {
+        font-size: 0.9rem;
+        margin: 0;
+        color: #666;
     }
 }

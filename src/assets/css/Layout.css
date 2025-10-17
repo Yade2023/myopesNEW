@@ -7,22 +7,24 @@
 .layout {
   display: flex;
   flex-direction: column;
-  height: 738px;
+  min-height: 100vh; /* 改為最小高度，適應不同螢幕 */
   max-width: 1279px;
   width: 100%;
-   margin: 0 auto;
+  margin: 0 auto;
 }
 
 .header {
-
   background-image: url('../ph/background-imageS/navbers3.png');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center top; /* 確保圖片置中對齊 */
+  min-height: 80px; /* 設定最小高度 */
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
   font-size: 1rem;
+  padding: 10px 0; /* 增加內邊距 */
 }
 
 .header h1 {
@@ -101,9 +103,88 @@ nav .router-link-class:hover {
 
 .content {
   background-image: url('../ph/background-imageS/bodys3.png');
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
-
+  background-position: center; /* 確保圖片置中 */
   flex: 1;
   padding: 20px;
+  min-height: 400px; /* 設定最小高度 */
+}
+
+/* ===============================
+   響應式設計 - 平板
+   =============================== */
+@media (max-width: 1024px) {
+  .layout {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .header nav {
+    width: 500px;
+    font-size: 18px;
+  }
+  
+  .header nav ul {
+    flex-wrap: wrap;
+  }
+}
+
+/* ===============================
+   響應式設計 - 手機
+   =============================== */
+@media (max-width: 768px) {
+  .layout {
+    padding: 0 0px;
+  }
+  
+  .header {
+    flex-direction: column;
+    padding: 15px 0;
+    min-height: auto;
+  }
+  
+  .header h1 {
+    margin: 0 0 10px 0;
+    text-align: center;
+  }
+  
+  .header nav {
+    width: 100%;
+    font-size: 18px;
+    justify-content: center;
+  }
+  
+  .header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .header button {
+    margin: 10px 0 0 0;
+  }
+  
+  .content {
+    padding: 15px;
+    min-height: 300px;
+  }
+}
+
+/* ===============================
+   響應式設計 - 小手機
+   =============================== */
+@media (max-width: 480px) {
+  .header nav {
+    font-size: 14px;
+  }
+  
+  .header nav ul li {
+    margin: 5px;
+  }
+  
+  .content {
+    padding: 10px;
+    min-height: 250px;
+  }
 }
