@@ -1,1 +1,0 @@
-import{_ as e}from"./Achievement-0Wbg8h2v.js";import{c as a,d as t,u as c,a as n,o}from"./index-CkWyX2Vh.js";const s={姓名:"徐承杰",出生年份:"1988/09/27",出生地:"桃園",學歷:"國立屏東科技大學_材料工程系",家庭狀況:{年齡:36,婚姻狀況:"已婚",子女:"有"}},r=n("h2",null,"自我介紹",-1),d={__name:"Introduce",setup(_){return(m,l)=>(o(),a("div",null,[r,t(e,{AchievementData:c(s)},null,8,["AchievementData"])]))}};export{d as default};
