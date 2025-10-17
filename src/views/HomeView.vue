@@ -1,13 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-
 <template>
   <div class="home">
     <!-- WelcomeIntro組件作為首頁的主要內容 -->
-<<<<<<< HEAD
     <WelcomeIntro  :photoUrl="photoUrl" />
-=======
-    <WelcomeIntro name="徐承杰" title="前端工程師 · 個人履歷" :photoUrl="photo" />
->>>>>>> 1671c9ba9e361f35bbb7fd0e8e35109119737d7b
   </div>
   
 </template>
@@ -15,7 +10,6 @@
 
 <script setup>
 import WelcomeIntro from '../components/WelcomeIntro.vue'
-<<<<<<< HEAD
 import photoUrl from '@/assets/ph/2222.png'
 
 
@@ -23,13 +17,6 @@ import photoUrl from '@/assets/ph/2222.png'
 <style scoped>
 .home {
   min-height: 70vh;
-=======
-import photo from '@/assets/ph/2222.png'
-</script>
-<style scoped>
-.home {
-  min-height: 100vh;
->>>>>>> 1671c9ba9e361f35bbb7fd0e8e35109119737d7b
   width: 100%;
   /* 用你的背景圖（範例） */
 }
